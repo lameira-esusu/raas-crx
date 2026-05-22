@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>RaaS Dev Navigator</title>
+    <link rel="stylesheet" href="popup.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <span class="brand">RaaS Dev Navigator</span>
+      <label class="check check-light" title="Keep the current tab's protocol + host; only change path and credentials. When off, use the selected environment's base URL.">
+        <input type="checkbox" id="keep-host" /> Keep hostname
+      </label>
+    </header>
+
+    <main class="content">
+      <section class="step">
+        <div class="step-head">
+          <span class="step-num">1</span>
+          <span class="step-title">Select environment</span>
+        </div>
+        <select id="env-select" class="step-control"></select>
+      </section>
+
+      <section class="step">
+        <div class="step-head">
+          <span class="step-num">2</span>
+          <span class="step-title">Select credential</span>
+        </div>
+        <select id="cred-select" class="step-control"></select>
+      </section>
+
+      <section class="step">
+        <div class="step-head">
+          <span class="step-num">3</span>
+          <span class="step-title">Open a path</span>
+        </div>
+
+        <p id="warning" class="warning" hidden></p>
+
+        <a id="current-path" class="route-btn current-path" target="_blank" rel="noopener noreferrer">
+          Current path
+        </a>
+
+        <div class="or-sep"><span>or</span></div>
+
+        <div id="route-groups"></div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <label class="check" title="Open routes in a new tab instead of navigating the tab you're on">
+        <input type="checkbox" id="open-new-tab" /> Open in new tab
+      </label>
+      <button id="open-options" class="link-btn" type="button">⚙ Options</button>
+    </footer>
+
+    <script type="module" src="popup.js"></script>
+  </body>
+</html>

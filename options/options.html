@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>RaaS Dev Navigator — Options</title>
+    <link rel="stylesheet" href="options.css" />
+  </head>
+  <body>
+    <div class="wrap">
+      <h1>RaaS Dev Navigator — Options</h1>
+      <p class="subtitle">
+        Manage environments and credential presets. Everything is stored in
+        <code>chrome.storage.sync</code> (with a local fallback).
+      </p>
+
+      <p id="status" class="status" hidden></p>
+
+      <!-- Environments -->
+      <section class="card">
+        <div class="card-head">
+          <h2>Environments</h2>
+          <div class="head-actions">
+            <button id="import-env" class="btn btn-secondary" type="button">Import</button>
+            <button id="export-env" class="btn btn-secondary" type="button">Export</button>
+            <button id="add-env" class="btn btn-secondary" type="button">+ Add environment</button>
+            <input id="import-env-file" type="file" accept="application/json,.json" hidden />
+          </div>
+        </div>
+        <table class="grid">
+          <thead>
+            <tr>
+              <th style="width: 30%">Name</th>
+              <th>Base URL</th>
+              <th style="width: 70px"></th>
+            </tr>
+          </thead>
+          <tbody id="env-rows"></tbody>
+        </table>
+      </section>
+
+      <!-- Credentials -->
+      <section class="card">
+        <div class="card-head">
+          <h2>Credential presets</h2>
+          <div class="head-actions">
+            <button id="import-cred" class="btn btn-secondary" type="button">Import</button>
+            <button id="export-cred" class="btn btn-secondary" type="button">Export</button>
+            <button id="add-cred" class="btn btn-secondary" type="button">+ Add credential</button>
+            <input id="import-file" type="file" accept="application/json,.json" hidden />
+          </div>
+        </div>
+        <table class="grid">
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>reference_id</th>
+              <th>public_token</th>
+              <th>Environment</th>
+              <th style="width: 150px">Actions</th>
+            </tr>
+          </thead>
+          <tbody id="cred-rows"></tbody>
+        </table>
+      </section>
+
+      <!-- Defaults -->
+      <section class="card">
+        <div class="card-head">
+          <h2>Defaults</h2>
+        </div>
+        <div class="defaults-grid">
+          <label class="field">
+            <span>Default environment</span>
+            <select id="def-env"></select>
+          </label>
+          <label class="field">
+            <span>Default credential</span>
+            <select id="def-cred"></select>
+          </label>
+        </div>
+      </section>
+
+      <div class="actions">
+        <button id="save" class="btn btn-primary" type="button">Save changes</button>
+        <button id="reset" class="btn btn-danger" type="button">Reset to defaults</button>
+      </div>
+    </div>
+
+    <script type="module" src="options.js"></script>
+  </body>
+</html>
